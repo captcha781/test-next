@@ -8,14 +8,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   let data = await rawFetch.json()
 
   return {
-    props: { ipInfo: data },
+    props: { ipInfo: data, ip: context.req.headers['x-forwarded-for'] },
   };
 }
 
-export default function Home({ ipInfo }: any) {
+export default function Home({ ipInfo, ip }: any) {
   return <div>
     <h2>TEst</h2>
     <h2>{ipInfo?.region || ''}</h2>
     <h2>{ipInfo?.ip || ''}</h2>
+    <h4>Rquest IP: {ip}</h4>
+    <h4>{JSON.stringify(ipInfo)}</h4>
   </div>;
 }
