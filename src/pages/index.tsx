@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 
-export const runtime = 'experimental-edge'
+export const runtime = 'edge'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 
