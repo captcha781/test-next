@@ -1,5 +1,7 @@
 import { GetServerSidePropsContext } from "next";
 
+export const runtime = 'experimental-edge'
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   let rawFetch = await fetch(`http://ipapi.co/${context.req.headers['x-forwarded-for']}/json`)
